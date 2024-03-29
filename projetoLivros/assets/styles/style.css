@@ -1,0 +1,116 @@
+*{
+    font-family: 'Montserrat', sans-serif;
+    padding: 0; 
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container-fluid{
+    box-sizing: border-box;
+}
+
+.container-fluid.pagHome{
+    padding: 0;
+    margin: 0;
+}
+
+.faixa-azul{
+    height: 50px;
+    width: 100%;
+    background-color: #138C8E;
+}
+
+.navBar{
+    background-color: #138C8E;
+}
+
+.btn-Login, .btn-Cadastro{
+    border: none;
+    width: 110px;
+    padding: 5px 0;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.btn-Login{
+    color: #138C8E;
+    background-color: #FFFFFF;
+}
+
+.btn-Cadastro{
+    color: #FFFFFF;
+    background-color: #138C8E;
+    border: solid 2px #FFFFFF;
+    margin-left: 15px;
+}
+
+.main-Home{
+    margin: 60px;
+}
+
+.titulo-Livro{
+    font-size: 18px;
+    font-weight: 700;
+    text-align: left;
+}
+
+.estado-livro{
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 28.8px;
+    text-align: left;
+
+}
+
+.row-livros{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 60px;
+}
+
+.col-livros{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+.conteudo-Troca p, h3{
+    margin-left: 5px;
+}
+
+.btn-Troca, .btn-Lista{
+    border: none;
+    width: 110px;
+    padding: 3px 0;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.btn-Troca{
+    background-color: #FF9279;
+    color: #FFFFFF;
+}
+
+.btn-Lista{
+    background-color: #FFFFFF;
+    color: #FF9279;
+    border: solid 2px #FF9279;
+    margin-left: 10px;
+}
+
+.rodape{
+    height: 60px;
+    width: 100%;
+    background-color: #138C8E;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rodape p{
+    margin: 0%;
+    font-size: 12px;
+}
