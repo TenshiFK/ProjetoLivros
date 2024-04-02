@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 02/04/2024 às 02:42
+-- Tempo de geração: 29/03/2024 às 19:21
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.0.30
 
@@ -62,14 +62,6 @@ CREATE TABLE `livros` (
   `id_usuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Despejando dados para a tabela `livros`
---
-
-INSERT INTO `livros` (`id`, `nomeLivro`, `autor`, `sinopse`, `urlImg`, `estado`, `genero`, `id_usuario`) VALUES
-(2, 'Milk and Honey', 'Rupi Kaur', 'O livro está dividido em quatro capítulos e cada capítulo tem um propósito diferente. Lida com uma dor diferente. Cura uma dor de cabeça diferente. Milk and Honey leva os leitores por uma jornada pelos momentos mais amargos da vida e encontra neles doçura, porque há doçura em todos os lugares, se você estiver disposto a olhar.', 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTC4Ie0oEzEJF8OoAxdWLM_GZ3ESFlf0KuZgpN0iui5ERZ4dBM7', 'Novo', 'Outros', NULL),
-(3, 'Thinking, Fast and Slow', 'Daniel Kahneman', 'O best-seller do \"New York Times\", aclamado por autores como Steven D. Levitt, co-autor de Freakonomics, Nassim Nicholas Taleb, autor de Cisne Negro, e Richard Thaler, co-autor de Nudge, \"Thinking Fast and Slow\" oferece uma visão totalmente nova do caminho. nossas mentes funcionam e como tomamos decisões. Por que há mais chances de acreditarmos em algo se estiver em negrito? Por que é mais provável que os juízes neguem a liberdade condicional antes do almoço? Por que presumimos que uma pessoa bonita será mais competente? A resposta está nas duas maneiras pelas quais fazemos escolhas: pensamento rápido e intuitivo e pensamento lento e racional. Este livro revela como nossas mentes são enganadas por erros e preconceitos (mesmo quando pensamos que estamos sendo lógicos) e oferece técnicas práticas para um pensamento mais lento e inteligente. Isso permitirá que você tome melhores decisões no trabalho, em casa e em tudo o que fizer.', 'https://static01.nyt.com/images/2021/02/23/sports/23mlb-book-1/merlin_183954006_5524c977-4aea-4bb2-a26a-a8b86909b366-mediumSquareAt3X.jpg', 'Usado', 'Outros', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -127,7 +119,7 @@ ALTER TABLE `generolivro`
 -- AUTO_INCREMENT de tabela `livros`
 --
 ALTER TABLE `livros`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
