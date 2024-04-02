@@ -1,8 +1,8 @@
 <?php
 
-	require "../models/books.model.php";
-	require "./books.service.php";
-	require "../models/conexao.php";
+	require "C:/xampp/htdocs/projetoLivros/src/models/books.model.php";
+	require "C:/xampp/htdocs/projetoLivros/src/controllers/books.service.php";
+	require "C:/xampp/htdocs/projetoLivros/src/models/conexao.php";
 
 
 	$acao = isset($_GET['acao']) ? $_GET['acao'] : $acao;

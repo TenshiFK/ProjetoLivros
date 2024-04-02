@@ -5,13 +5,13 @@
     box-sizing: border-box;
 }
 
-.container-fluid{
-    box-sizing: border-box;
+a{
+    text-decoration: none;
+    color: inherit;
 }
 
-.container-fluid.pagHome{
-    padding: 0;
-    margin: 0;
+.container-fluid{
+    box-sizing: border-box;
 }
 
 .faixa-azul{
@@ -38,11 +38,19 @@
     background-color: #FFFFFF;
 }
 
+.btn-Login:hover{
+    background-color: #d8dfe0;
+}
+
 .btn-Cadastro{
     color: #FFFFFF;
     background-color: #138C8E;
     border: solid 2px #FFFFFF;
     margin-left: 15px;
+}
+
+.btn-Cadastro:hover{
+    background-color: #0e6668;
 }
 
 .main-Home{
@@ -53,6 +61,7 @@
     font-size: 18px;
     font-weight: 700;
     text-align: left;
+    max-width: 220px;
 }
 
 .estado-livro{
@@ -76,7 +85,7 @@
 }
 
 .conteudo-Troca p, h3{
-    margin-left: 5px;
+    margin-top: 5px;
 }
 
 .btn-Troca, .btn-Lista{
@@ -93,11 +102,19 @@
     color: #FFFFFF;
 }
 
+.btn-Lista:hover{
+    background-color: #f3eeec;
+}
+
 .btn-Lista{
     background-color: #FFFFFF;
     color: #FF9279;
     border: solid 2px #FF9279;
     margin-left: 10px;
+}
+
+.btn-Troca:hover{
+    background-color: #d47a66;
 }
 
 .rodape{
