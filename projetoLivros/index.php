@@ -22,6 +22,30 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 
+
+    <!--AJAX-->
+		<!-- Tenta puxar os dados do forms, utilizando o status pesquisado -->
+		<script language="javascript" type="text/javascript">
+			function GetRequestAjax(funcao){
+					/**Tenta criar um request**/
+					let request = new XMLHttpRequest();
+					/**procurar tentar chamar a funcao forms para o URL**/
+					var url="index.php?acao=";
+					/**Adiciona o request com o status */
+					request.open("GET",url+funcao, true);
+					request.onreadystatechange = () => {
+						if(request.readyState == 4 && request.status == 200){
+							//**let dadosJSONText = request.responseText;
+							/**let dados = JSON.parse(response);**/
+							/**Muda a URL para a função.**/
+							history.pushState({},"",url+funcao);
+							window.location.reload()
+						}
+					}
+					request.send();
+				}
+		</script>
+
 </head>
 
 <body>
@@ -65,7 +89,7 @@
         <div class="form-group w-25">
             <form action="">
                 <label for="">Filtrar Gênero</label>
-                <select class="form-select mb-4" name="genero" aria-label="Default select example">
+                <select class="form-select mb-4" name="genero" aria-label="Default select example" onchange="GetRequestAjax(this.value)">
                     <option selected value="recuperarLivro">Selecione um gênero de livro</option>
                     <option value="recuperarGeneroRomance">Romance</option>
                     <option value="recuperarGeneroAcao">Ação</option>

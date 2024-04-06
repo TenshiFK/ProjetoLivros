@@ -93,7 +93,7 @@
 		$conexao = new Conexao();
 
 		$livrosService = new LivrosService($conexao, $livro);
-		$tarefas = $livrosService->recuperarGeneroRomance();
+		$livros = $livrosService->recuperarGeneroRomance();
 
 	} else if($acao == 'recuperarGeneroAcao') {
         $livro = new Livro();
