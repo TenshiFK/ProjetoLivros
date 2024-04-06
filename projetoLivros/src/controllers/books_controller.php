@@ -9,6 +9,7 @@
 
 	if($acao == 'inserirLivro' ) {
 		$livro = new Livro();
+		$livro->__set('id_usuario', $_POST['id_usuario']);
 		$livro->__set('nomeLivro', $_POST['nomeLivro']);
 		$livro->__set('autor', $_POST['autor']);
 		$livro->__set('urlImg', $_POST['urlImg']);
@@ -21,7 +22,6 @@
 		$livrosService = new LivrosService($conexao, $livro);
 		$livrosService->inserir();
 
-        //header('Location: nova_tarefa.php?inclusao=1');
 		header('Location: ../view/addLivro.php?inclusao=1');
 	
 	} else if($acao == 'recuperarLivro') {
@@ -42,25 +42,34 @@
 			$livrosService = new LivrosService($conexao, $livro);
 			$livroDetalhes = $livrosService->recuperar_id();
 		}
-	} else if($acao == 'atualizarLivro') {
 
+	} else if($acao == 'recuperarLivroIdUser') {
+		$livro = new Livro();
+		$conexao = new Conexao();
+	
+		$livrosService = new LivrosService($conexao, $livro);
+		$livros = $livrosService->recuperar_idUser();
+
+	} else if($acao == 'atualizarLivro') {
 		$livro = new Livro();
 		$livro->__set('id', $_POST['id'])
-			->__set('livro', $_POST['livro']);
-
+			  ->__set('nomeLivro', $_POST['nomeLivro'])
+			  ->__set('autor', $_POST['autor'])
+			  ->__set('sinopse', $_POST['sinopse'])
+			  ->__set('urlImg', $_POST['urlImg'])
+			  ->__set('estado', $_POST['estado'])
+			  ->__set('genero', $_POST['genero']);
+	
 		$conexao = new Conexao();
-
+	
 		$livrosService = new LivrosService($conexao, $livro);
 		if($livrosService->atualizar()) {
-			
-			if( isset($_GET['pag']) && $_GET['pag'] == '...') {
-				header('location: ....php');	
+			if( isset($_GET['pag']) && $_GET['pag'] == 'index') {
+				header('location: ../../index.php ');    
 			} else {
-				header('location: ....php');
+				header('location: ../view/home.php?inclusao=1');
 			}
 		}
-
-
 	} else if($acao == 'removerLivro') {
 
 		$livro = new Livro();
@@ -71,10 +80,10 @@
 		$livrosService = new LivrosService($conexao, $livro);
 		$livrosService->remover();
 
-		if( isset($_GET['pag']) && $_GET['pag'] == '...') {
-			header('location: ....php');	
+		if( isset($_GET['pag']) && $_GET['pag'] == 'index') {
+			header('location: ../../index.php ');	
 		} else {
-			header('location: ....php');
+			header('location: ../view/home.php');
 		}
 	
 	} else if($acao == 'recuperarGeneroRomance') {

@@ -10,7 +10,7 @@
     }
 
     if (!isset($_SESSION['autenticar']) || $_SESSION['autenticar'] != "SIM"){
-        header('Location: index.php?login=erro2');
+        header('Location:  ../view/login.php?login=erro2');
         exit;
     }
 

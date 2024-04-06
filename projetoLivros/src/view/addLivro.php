@@ -1,5 +1,10 @@
 <?php
 
+require '../../validador_acesso.php';
+
+require '../controllers/login_controller.php';
+$userId = $_SESSION['id'];
+
 ?>
 
 <!DOCTYPE html>
@@ -106,6 +111,8 @@
         <h1 class="titulo-paginas">Cadastro de novo livro:</h1>
         
         <form class="livro" method="post" action="../controllers/books_controller.php?acao=inserirLivro">
+            <input type="hidden" id="id_usuario" name="id_usuario" value="<?= $userId ?>">
+
             <div class="forms">
                 <input type="text" id="nomeLivro" name="nomeLivro" placeholder="Nome do Livro" required>
             </div>

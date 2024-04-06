@@ -35,8 +35,7 @@
                     <img src="../../assets/img/Group 4.png" height="60"alt="Logo">
                 </a>
                 <form class="d-flex" role="search">
-                    <button class="btn-Login" type="submit"><a href="./src/view/login.php">Login</a></button>
-                    <button class="btn-Cadastro" type="submit"><a href="./src/view/cadastro.php">Cadastro</a></button>
+                    <button class="btn-Login" type="submit"><a href="./login.php">Login</a></button>
                 </form>
                 </div>
             </div>

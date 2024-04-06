@@ -1,5 +1,7 @@
 <?php
 
+// require 'C:/xampp/htdocs/projetoLivros/validador_acesso.php';
+
 //CRUD
 class LivrosService {
 
@@ -12,8 +14,9 @@ class LivrosService {
 	}
 
 	public function inserir() { //create
-		$query = 'insert into livros(nomeLivro, autor, sinopse, urlImg, estado, genero) values(:nomeLivro, :autor, :sinopse, :urlImg, :estado, :genero)';
+		$query = 'insert into livros(id_usuario, nomeLivro, autor, sinopse, urlImg, estado, genero) values(:id_usuario, :nomeLivro, :autor, :sinopse, :urlImg, :estado, :genero)';
 		$stmt = $this->conexao->prepare($query);
+		$stmt->bindValue(':id_usuario', $this->livro->__get('id_usuario'));
 		$stmt->bindValue(':nomeLivro', $this->livro->__get('nomeLivro'));
 		$stmt->bindValue(':autor', $this->livro->__get('autor'));
 		$stmt->bindValue(':sinopse', $this->livro->__get('sinopse'));
@@ -53,12 +56,35 @@ class LivrosService {
 		return $stmt->fetch(PDO::FETCH_OBJ);
 	}
 
+	public function recuperar_idUser() { 
+
+		$idUser = $_SESSION['id'];
+		$query = '
+			select 
+				l.id, l.nomeLivro, l.autor, l.sinopse, l.urlImg, l.estado, g.genero, l.id_usuario 
+			from 
+				livros as l
+				left join generolivro as g on (l.genero = g.genero)
+			where
+				l.id_usuario  = :idUser
+		';
+		$stmt = $this->conexao->prepare($query);
+		$stmt->bindValue(':idUser', $idUser);
+		$stmt->execute();
+		return $stmt->fetchAll(PDO::FETCH_OBJ);
+	}
+
 	public function atualizar() { //update
 
-		$query = "update livros set livro = ? where id = ?";
+		$query = "update livros set nomeLivro = ?, autor = ?, sinopse = ?, urlImg = ?, estado = ?, genero = ? where id = ?";
 		$stmt = $this->conexao->prepare($query);
-		$stmt->bindValue(1, $this->livro->__get('livro'));
-		$stmt->bindValue(2, $this->livro->__get('id'));
+		$stmt->bindValue(1, $this->livro->__get('nomeLivro'));
+		$stmt->bindValue(2, $this->livro->__get('autor'));
+		$stmt->bindValue(3, $this->livro->__get('sinopse'));
+		$stmt->bindValue(4, $this->livro->__get('urlImg'));
+		$stmt->bindValue(5, $this->livro->__get('estado'));
+		$stmt->bindValue(6, $this->livro->__get('genero'));
+		$stmt->bindValue(7, $this->livro->__get('id'));
 		return $stmt->execute(); 
 	}
 

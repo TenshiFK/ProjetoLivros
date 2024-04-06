@@ -32,7 +32,7 @@
                 <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                <a class="navbar-brand me-auto mb-2 mb-lg-0" href="#">
+                <a class="navbar-brand me-auto mb-2 mb-lg-0" href="./index.php">
                     <img src="./assets/img/Group 4.png" height="60"alt="Logo">
                 </a>
                 <form class="d-flex" role="search">
