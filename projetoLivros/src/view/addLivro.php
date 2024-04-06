@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Genérico - Cadastro</title>
+    <title>Genérico - Cadastro Livro</title>
 
     <!--Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -96,11 +96,18 @@
     
     <button class="btn-voltar m-4"><a href="./home.php">voltar</a></button>
 
+    <?php if( isset($_GET['inclusao']) && $_GET['inclusao'] == 1 ) { ?>
+			<div class="bg-success pt-2 text-white d-flex justify-content-center">
+				<h5>Livro cadastrado com sucesso!</h5>
+			</div>
+	<?php } ?>
+
     <main class="main-Home d-flex flex-column justify-content-left align-items-center">
         <h1 class="titulo-paginas">Cadastro de novo livro:</h1>
-        <form class="livro">
+        
+        <form class="livro" method="post" action="../controllers/books_controller.php?acao=inserirLivro">
             <div class="forms">
-                <input type="text" id="NomeLivro" name="NomeLivro" placeholder="Nome do Livro" required>
+                <input type="text" id="nomeLivro" name="nomeLivro" placeholder="Nome do Livro" required>
             </div>
 
             <div class="forms">
@@ -108,10 +115,10 @@
             </div>
 
             <div class="forms">
-                <select id="estadoLivro" name="estadoLivro" required>
+                <select id="estadoLivro" name="estado" required>
                     <option value="" disabled selected>Estado do Livro</option>
-                    <option value="">Novo</option>
-                    <option value="">Usado</option>
+                    <option value="Novo">Novo</option>
+                    <option value="Usado">Usado</option>
                 </select>
             </div>
 
@@ -129,14 +136,14 @@
             </div>
 
             <div class="forms">
-                <input type="url" id="" name="" placeholder="URL da Foto">
+                <input type="url" id="urlImg" name="urlImg" placeholder="URL da Foto">
             </div>
 
             <div class="forms">
                 <textarea id="sinopse" name="sinopse" rows="5" placeholder="Sinopse"></textarea>
             </div>
 
-            <button class="btn-Troca btn-addLivro">Adicionar Livro</button>
+            <button class="btn-Troca btn-addLivro" type="submit"> Adicionar Livro </button>
         </form>
 
     </main>

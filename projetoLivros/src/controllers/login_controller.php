@@ -14,9 +14,7 @@ class LoginController{
         if ($user && password_verify($senha, $user->senha)) {
             $_SESSION['autenticar'] = 'SIM';
             $_SESSION['id'] = $user->id;
-            // Supondo que você tenha um perfil associado ao usuário
-            // $_SESSION['profile_id'] = $user->profile_id;
-            //C:/xampp/htdocs/projetoLivros/src/view/home.php
+
             header('Location: ../projetoLivros/src/view/home.php');
             exit;
         } else {

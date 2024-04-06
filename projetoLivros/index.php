@@ -22,12 +22,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 
-    <script>
-        function abrirDetalhesLivro(id) {
-            location.href = '...';
-        }
-    </script>
-
 </head>
 
 <body>
@@ -96,10 +90,10 @@
                     <img src="<?= $livro->urlImg ?>" width="220" height="260" alt="">
                     <div class="conteudo-Troca">
                         <h3 class="titulo-Livro">Livro: <?= $livro->nomeLivro ?></h3>
-                        <p class="estado_Livro">Estado: <?= $livro->autor ?></p>
+                        <p class="estado_Livro">Estado: <?= $livro->estado ?></p>
 
                         <div class="d-flex start-0">
-                            <button class="btn-Troca">Quero Trocar</button>
+                            <a href="./src/view/livro.php?id=<?= $livro->id ?>"> <button class="btn-Troca">Quero Trocar</button> </a>
                             <button class="btn-Lista">Lista de Desejos</button>
                         </div>
                     </div>

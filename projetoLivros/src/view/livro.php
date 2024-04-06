@@ -1,5 +1,8 @@
 <?php
 
+$acao = 'recuperarLivroId';
+require '../controllers/books_controller.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -8,7 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Genérico - Cadastro</title>
+    <title>Genérico - Trocar Livro</title>
 
     <!--Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -21,6 +24,24 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+    <style>
+        .info-livro{
+            border: solid 1px #138C8E;
+            padding: 10px;
+            width: 100%;
+            border-radius: 15px;
+            margin-bottom: 10px;
+        }
+
+        .btn-addLivro{
+            margin-top: 20px;
+            width: fit-content;
+            font-size: 16px;
+            padding: 10px;
+        }
+
+    </style>
 
 </head>
 <body>
@@ -45,7 +66,29 @@
     <button class="btn-voltar m-4"><a href="../../index.php">voltar</a></button>
 
     <main class="main-Home">
-        <h1>Interno Teste</h1>
+        <div class="d-flex pb-4">
+            <div class="col d-flex flex-column justify-content-center align-items-center">
+                <img src="<?= $livroDetalhes->urlImg ?>" width="420" height="460" alt="">
+                <button class="btn-Troca btn-addLivro">Entrar em Contato</button>
+            </div>
+            <div class="col d-flex flex-column align-items-center justify-content-between">
+                <div class="info-livro">
+                    <?= $livroDetalhes->nomeLivro ?>
+                </div>
+                <div class="info-livro">
+                    <?= $livroDetalhes->autor ?>
+                </div>
+                <div class="info-livro">
+                    <?= $livroDetalhes->estado ?>
+                </div>
+                <div class="info-livro">
+                    <?= $livroDetalhes->genero ?>
+                </div>
+                <div class="info-livro">
+                    <?= $livroDetalhes->sinopse ?>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer class="rodape">

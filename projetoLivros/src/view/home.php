@@ -62,7 +62,7 @@
         <div class="d-flex justify-content-between align-items-center">
             <h1 class="titulo-paginas">Interno Teste</h1>
 
-            <button class="btn-Troca btn-addLivro" type="submit"><a href="../view/addLivro.php">Adicionar Novo LIvro</a></button>
+            <button class="btn-Troca btn-addLivro" type="submit"><a href="../view/addLivro.php">Adicionar Novo Livro</a></button>
         </div>
     </main>
 

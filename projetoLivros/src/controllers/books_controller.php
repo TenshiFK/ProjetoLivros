@@ -14,6 +14,7 @@
 		$livro->__set('urlImg', $_POST['urlImg']);
 		$livro->__set('estado', $_POST['estado']);
         $livro->__set('genero', $_POST['genero']);
+		$livro->__set('sinopse', $_POST['sinopse']);
 
 		$conexao = new Conexao();
 
@@ -21,7 +22,7 @@
 		$livrosService->inserir();
 
         //header('Location: nova_tarefa.php?inclusao=1');
-		header('Location: ...');
+		header('Location: ../view/addLivro.php?inclusao=1');
 	
 	} else if($acao == 'recuperarLivro') {
 		
@@ -31,6 +32,16 @@
 		$livrosService = new LivrosService($conexao, $livro);
 		$livros = $livrosService->recuperar();
 	
+	} else if($acao == 'recuperarLivroId') {
+		$idLivro = isset($_GET['id']) ? $_GET['id'] : null;
+		if ($idLivro) {
+			$livro = new Livro();
+			$livro->__set('id', $idLivro);
+	
+			$conexao = new Conexao();
+			$livrosService = new LivrosService($conexao, $livro);
+			$livroDetalhes = $livrosService->recuperar_id();
+		}
 	} else if($acao == 'atualizarLivro') {
 
 		$livro = new Livro();

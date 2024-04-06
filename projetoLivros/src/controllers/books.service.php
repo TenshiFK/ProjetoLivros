@@ -14,7 +14,7 @@ class LivrosService {
 	public function inserir() { //create
 		$query = 'insert into livros(nomeLivro, autor, sinopse, urlImg, estado, genero) values(:nomeLivro, :autor, :sinopse, :urlImg, :estado, :genero)';
 		$stmt = $this->conexao->prepare($query);
-		$stmt->bindValue(':nomeLivro', $this->livro->__get('tarefa'));
+		$stmt->bindValue(':nomeLivro', $this->livro->__get('nomeLivro'));
 		$stmt->bindValue(':autor', $this->livro->__get('autor'));
 		$stmt->bindValue(':sinopse', $this->livro->__get('sinopse'));
 		$stmt->bindValue(':urlImg', $this->livro->__get('urlImg'));
@@ -34,6 +34,23 @@ class LivrosService {
 		$stmt = $this->conexao->prepare($query);
 		$stmt->execute();
 		return $stmt->fetchAll(PDO::FETCH_OBJ);
+	}
+
+	public function recuperar_id() { //read
+		$idLivro = $this->livro->__get('id');
+		$query = '
+			select 
+				l.id, l.nomeLivro, l.autor, l.sinopse, l.urlImg, l.estado, g.genero 
+			from 
+				livros as l
+				left join generolivro as g on (l.genero = g.genero)
+			where
+				l.id = :idLivro
+		';
+		$stmt = $this->conexao->prepare($query);
+		$stmt->bindValue(':idLivro', $idLivro);
+		$stmt->execute();
+		return $stmt->fetch(PDO::FETCH_OBJ);
 	}
 
 	public function atualizar() { //update
