@@ -1,7 +1,7 @@
 <?php
 
 	require "C:/xampp/htdocs/projetoLivros/src/models/books.model.php";
-	require "C:/xampp/htdocs/projetoLivros/src/controllers/books.service.php";
+	require "C:/xampp/htdocs/projetoLivros/src/service/books.service.php";
 	require "C:/xampp/htdocs/projetoLivros/src/models/conexao.php";
 
 
@@ -93,7 +93,7 @@
 		$conexao = new Conexao();
 
 		$livrosService = new LivrosService($conexao, $livro);
-		$tarefas = $livrosService->recuperarGeneroRomance();
+		$livros = $livrosService->recuperarGeneroRomance();
 
 	} else if($acao == 'recuperarGeneroAcao') {
         $livro = new Livro();

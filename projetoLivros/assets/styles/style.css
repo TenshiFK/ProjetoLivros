@@ -14,6 +14,12 @@ a{
     box-sizing: border-box;
 }
 
+.titulo-paginas{
+    font-size: 28px;
+    color: #004647;
+    font-weight: 700;
+}
+
 .faixa-azul{
     height: 50px;
     width: 100%;
@@ -74,8 +80,9 @@ a{
 
 .row-livros{
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     margin-bottom: 60px;
+    gap: 270px;
 }
 
 .col-livros{

@@ -16,11 +16,41 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <!--Estilos-->
-    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="stylesheet" type="text/css" href="./assets/styles/style.css">
 
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+
+    <!--AJAX-->
+		<!-- Tenta puxar os dados do forms, utilizando o status pesquisado -->
+    <script language="javascript" type="text/javascript">
+        function GetRequestAjax(funcao){
+                /**Tenta criar um request**/
+                let request = new XMLHttpRequest();
+                /**procurar tentar chamar a funcao forms para o URL**/
+                var url="index.php?acao=";
+                /**Adiciona o request com o status */
+                request.open("GET",url+funcao, true);
+                request.onreadystatechange = () => {
+                    if(request.readyState == 4 && request.status == 200){
+                        //**let dadosJSONText = request.responseText;
+                        /**let dados = JSON.parse(response);**/
+                        /**Muda a URL para a função.**/
+                        history.pushState({},"",url+funcao);
+                        window.location.reload()
+                    }
+                }
+                request.send();
+            }
+    </script>
+
+    <style>
+        .btn-Login{
+            text-align: center;
+        }
+    </style>
 
 </head>
 
@@ -36,8 +66,8 @@
                     <img src="./assets/img/Group 4.png" height="60"alt="Logo">
                 </a>
                 <form class="d-flex" role="search">
-                    <button class="btn-Login" type="submit"><a href="./src/view/login.php">Login</a></button>
-                    <button class="btn-Cadastro" type="submit"><a href="./src/view/cadastro.php">Cadastro</a></button>
+                    <a class="btn-Login" href="./src/view/login.php">Login</a>
+                    <button class="btn-Cadastro"><a href="./src/view/cadastro.php">Cadastro</a></button>
                 </form>
                 </div>
             </div>
@@ -65,8 +95,9 @@
         <div class="form-group w-25">
             <form action="">
                 <label for="">Filtrar Gênero</label>
-                <select class="form-select mb-4" name="genero" aria-label="Default select example">
-                    <option selected value="recuperarLivro">Selecione um gênero de livro</option>
+                <select class="form-select mb-4" name="genero" aria-label="Default select example" onchange="GetRequestAjax(this.value)">
+                    <option selected >Selecione um gênero de livro</option>
+                    <option value="recuperarLivro">Todos</option>
                     <option value="recuperarGeneroRomance">Romance</option>
                     <option value="recuperarGeneroAcao">Ação</option>
                     <option value="recuperarGeneroAventura">Aventura</option>

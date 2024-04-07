@@ -68,3 +68,70 @@ input[type="text"], input[type="url"],input[type="email"], input[type="password"
     font-weight: 700;
     font-size: 18px;
 }
+
+.login-card-2 {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #FF9279;
+    padding: 10px;
+    text-align: center;
+    width: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-1 {
+    margin-bottom: 20px;
+    width: 310px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.logo-3 {
+    width: 150px;
+    margin-bottom: 20px;
+    margin-top: 0;
+    padding: 10px;
+}
+
+.livros {
+    width: 250px;
+}
+
+.forms {
+    margin-bottom: 12px;
+    border-color: #FF9279;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"], input[type="url"], textarea,select {
+    width: 100%;
+    padding: 10px;
+    border: 1.5px solid #FF9279;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+input[type="text"], input[type="url"], textarea,select:focus {
+    border-color: #FF9279;
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+}
+
+select {
+    background-size: 20px;
+    color: #FF9279;
+    width: 430px;
+}

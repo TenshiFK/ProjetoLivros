@@ -1,7 +1,7 @@
 <?php
 
     require "C:/xampp/htdocs/projetoLivros/src/models/users.model.php";
-    require "C:/xampp/htdocs/projetoLivros/src/controllers/users.service.php";
+    require "C:/xampp/htdocs/projetoLivros/src/service/users.service.php";
     require "C:/xampp/htdocs/projetoLivros/src/models/conexao.php";
 
     $acao = isset($_GET['acao']) ? $_GET['acao'] : null;
