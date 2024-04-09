@@ -83,7 +83,7 @@ require '../controllers/books_controller.php';
                 $contador = 0;
                 foreach($livros as $indice => $livro) {
                     // Inicia uma nova linha a cada três itens
-                    if ($contador % 4 == 0) {
+                    if ($contador % 3 == 0) {
                         echo '<div class="row-livros">';
                     }
                 ?>
@@ -102,12 +102,12 @@ require '../controllers/books_controller.php';
                 <?php
                     $contador++;
                     // Fecha a linha a cada três itens
-                    if ($contador % 4 == 0) {
+                    if ($contador % 3 == 0) {
                         echo '</div>';
                     }
                 }
                 // Fecha a última linha se o número de livros não for múltiplo de três
-                if ($contador % 4 != 0) {
+                if ($contador % 3 != 0) {
                     echo '</div>';
                 }
             ?>
